@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">SmsTimer</string>
     <string name="delete">Delete Sent</string>
+    <string-array name="message_choices">
+        <item>Delayed</item>
+        <item>Location</item>
+        <item>Adding Contact</item>
+        <item>Drive Mode</item>
+    </string-array>
 </resources>
