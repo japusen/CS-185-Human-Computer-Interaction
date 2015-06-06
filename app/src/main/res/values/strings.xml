@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SmsTimer</string>
+    <string name="delete">Delete Sent</string>
+</resources>

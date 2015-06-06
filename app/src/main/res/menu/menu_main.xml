@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:SmsTimer="http://schemas.android.com/apk/res-auto">
+
+    <!-- Delete, should appear as action button -->
+    <item android:id="@+id/delete"
+        android:title="@string/delete"
+        SmsTimer:showAsAction="always|withText"/>
+
+</menu>
