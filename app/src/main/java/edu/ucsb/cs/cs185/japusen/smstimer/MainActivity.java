@@ -2,21 +2,20 @@ package edu.ucsb.cs.cs185.japusen.smstimer;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
-
+import com.google.gson.Gson;
 import com.melnykov.fab.FloatingActionButton;
+import java.util.ArrayList;
+import java.util.Arrays;
 
-import java.util.LinkedList;
 
 
 public class MainActivity extends ActionBarActivity  {
@@ -28,7 +27,12 @@ public class MainActivity extends ActionBarActivity  {
     SlidingTabLayout tabs;
     CharSequence Titles[]={"Pending", "Sent"};
     int Numboftabs = 2;
-    LinkedList<String> myDataset;
+    ArrayList<Event> pending;
+    ArrayList<Event> sent;
+    public static final String SETTINGS = "AutoTextApp";
+    public static final String PENDING = "PendingMessages";
+    public static final String SENT = "SentMessages";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +43,12 @@ public class MainActivity extends ActionBarActivity  {
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
 
+        //get Lists
+        pending = getPending(this);
+        sent = getSent(this);
 
         // Creating The ViewPagerAdapter and Passing Fragment Manager, Titles fot the Tabs and Number Of Tabs.
-        adapter =  new ViewPagerAdapter(getSupportFragmentManager(),Titles,Numboftabs);
+        adapter =  new ViewPagerAdapter(getSupportFragmentManager(), Titles, Numboftabs, pending, sent);
 
         // Assigning ViewPager View and setting the adapter
         pager = (ViewPager) findViewById(R.id.pager);
@@ -64,7 +71,6 @@ public class MainActivity extends ActionBarActivity  {
 
 
         FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.fab);
-        //fab.attachToRecyclerView(mRecyclerView);
         fab.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "clicked FAB", Toast.LENGTH_LONG).show();
@@ -95,8 +101,82 @@ public class MainActivity extends ActionBarActivity  {
         return super.onOptionsItemSelected(item);
     }
 
+    // click fab to open new message
     public void clickNewMessage(View view) {
         Intent myIntent = new Intent(this, NewMessageActivity.class);
         startActivity(myIntent);
+    }
+
+    public void savePending(Context context, ArrayList<Event> pending) {
+        SharedPreferences settings;
+        SharedPreferences.Editor editor;
+
+        settings = context.getSharedPreferences(SETTINGS,
+                Context.MODE_PRIVATE);
+        editor = settings.edit();
+
+        Gson gson = new Gson();
+        String jsonPending = gson.toJson(pending);
+
+        editor.putString(PENDING, jsonPending);
+        editor.commit();
+    }
+
+    public ArrayList<Event> getPending(Context context) {
+        SharedPreferences settings;
+        ArrayList<Event> pending;
+
+        settings = context.getSharedPreferences(SETTINGS,
+                Context.MODE_PRIVATE);
+
+        if (settings.contains(PENDING)) {
+            String jsonFavorites = settings.getString(PENDING, null);
+            Gson gson = new Gson();
+            Event[] pendingItems = gson.fromJson(jsonFavorites,
+                    Event[].class);
+
+            pending = new ArrayList<Event>(Arrays.asList(pendingItems));
+            //pending = new List<Event>(pending);
+        }
+        else
+            pending = new ArrayList<Event>();
+
+        return pending;
+    }
+
+    public void saveSent(Context context, ArrayList<Event> sent) {
+        SharedPreferences settings;
+        SharedPreferences.Editor editor;
+
+        settings = context.getSharedPreferences(SETTINGS,
+                Context.MODE_PRIVATE);
+        editor = settings.edit();
+
+        Gson gson = new Gson();
+        String jsonSent = gson.toJson(sent);
+
+        editor.putString(SENT, jsonSent);
+        editor.commit();
+    }
+
+    public ArrayList<Event> getSent(Context context) {
+        SharedPreferences settings;
+        ArrayList<Event> sent;
+
+        settings = context.getSharedPreferences(SETTINGS,
+                Context.MODE_PRIVATE);
+
+        if (settings.contains(SENT)) {
+            String jsonFavorites = settings.getString(SENT, null);
+            Gson gson = new Gson();
+            Event[] sentItems = gson.fromJson(jsonFavorites,
+                    Event[].class);
+
+            sent = new ArrayList<Event>(Arrays.asList(sentItems));
+            //sent = new List<Event>(sent);
+        } else
+            sent = new ArrayList<Event>();
+
+        return sent;
     }
 }
