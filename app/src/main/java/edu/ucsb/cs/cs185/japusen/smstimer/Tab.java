@@ -77,6 +77,9 @@ public class Tab extends ListFragment {
         else
             data = getSent(getActivity());
 
+        drivingEvent event = new drivingEvent(3, "don't bother me", "Driving Mode", "your mother's house", (float)25.0);
+        data.add(event);
+
         //list_items = new String[]{"One", "Two", "Three"};
         //setListAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, list_items));
         MyArrayAdapter adapter = new MyArrayAdapter(getActivity(), data);
