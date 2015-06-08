@@ -1,6 +1,7 @@
 package edu.ucsb.cs.cs185.japusen.smstimer;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -67,6 +68,7 @@ public class MainActivity extends ActionBarActivity  {
         fab.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "clicked FAB", Toast.LENGTH_LONG).show();
+                clickNewMessage(v);
             }
         });
     }
@@ -91,5 +93,10 @@ public class MainActivity extends ActionBarActivity  {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void clickNewMessage(View view) {
+        Intent myIntent = new Intent(this, NewMessageActivity.class);
+        startActivity(myIntent);
     }
 }

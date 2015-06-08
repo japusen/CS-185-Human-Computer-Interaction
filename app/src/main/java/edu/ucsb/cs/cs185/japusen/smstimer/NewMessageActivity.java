@@ -6,6 +6,10 @@ package edu.ucsb.cs.cs185.japusen.smstimer;
 
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,7 +21,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 
-public class NewMessageActivity extends Activity implements AdapterView.OnItemSelectedListener {
+public class NewMessageActivity extends ActionBarActivity implements AdapterView.OnItemSelectedListener {
+    private FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +39,9 @@ public class NewMessageActivity extends Activity implements AdapterView.OnItemSe
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+
+        // fragment manager
+        fragmentManager = getFragmentManager();
     }
 
     // Select a message type from the spinner
@@ -41,11 +49,34 @@ public class NewMessageActivity extends Activity implements AdapterView.OnItemSe
         // Item selected
         String select = (String)parent.getItemAtPosition(pos);
         Log.w("onItemSelected", select);
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        switch (select) {
+            case "Delayed":
+                DelayFragment delay = new DelayFragment();
+                fragmentTransaction.replace(R.id.message_fragment_container, delay);
+                fragmentTransaction.addToBackStack(null);
+                break;
+            case "Location":
+                LocationFragment loc = new LocationFragment();
+                fragmentTransaction.replace(R.id.message_fragment_container, loc);
+                fragmentTransaction.addToBackStack(null);
+                break;
+            case "Adding Contact":
+                break;
+            case "Drive Mode":
+                break;
+
+        }
+        fragmentTransaction.commit();
+
 
     }
 
     public void onNothingSelected(AdapterView<?> parent) {
         Log.w("onNothingSelected", "nothing selected");
     }
+
+
 
 }
