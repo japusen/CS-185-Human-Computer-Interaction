@@ -128,7 +128,6 @@ public class MainActivity extends ActionBarActivity  {
                     Event[].class);
 
             pending = new ArrayList<Event>(Arrays.asList(pendingItems));
-            //pending = new List<Event>(pending);
         }
         else
             pending = new ArrayList<Event>();
@@ -165,7 +164,6 @@ public class MainActivity extends ActionBarActivity  {
                     Event[].class);
 
             sent = new ArrayList<Event>(Arrays.asList(sentItems));
-            //sent = new List<Event>(sent);
         }
         else
             sent = new ArrayList<Event>();
