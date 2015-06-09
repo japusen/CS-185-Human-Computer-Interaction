@@ -21,7 +21,7 @@ public class DrivingFragment extends DialogFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View addView = inflater.inflate(R.layout.add_contact_layout, container, false);
+        View addView = inflater.inflate(R.layout.driving_layout, container, false);
 
         return addView;
     }

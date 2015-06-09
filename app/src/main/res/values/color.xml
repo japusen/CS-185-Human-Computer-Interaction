@@ -27,4 +27,11 @@
         <item>@color/darkorange</item>
         <item>@color/darkred</item>
     </integer-array>
+
+    <color name="theme">#255e69</color>
+    <color name="drive">#172556</color>
+    <color name="map">#012C34</color>
+    <color name="clock">#106022</color>
+    <color name="contact">#50a162</color>
+
 </resources>
