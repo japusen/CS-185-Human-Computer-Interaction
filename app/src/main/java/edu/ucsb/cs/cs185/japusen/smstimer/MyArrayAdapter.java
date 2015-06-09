@@ -89,8 +89,8 @@ public class MyArrayAdapter extends ArrayAdapter<Event> {
             default:
                 imageView.setImageResource(R.mipmap.ic_launcher);
                 top.setText("Shit,");
-                middle.setText("Something fucked up.");
-                bottom.setText("God damn.");
+                middle.setText("It's not supposed to get here");
+                bottom.setText("Uh oh.");
                 break;
         }
 
