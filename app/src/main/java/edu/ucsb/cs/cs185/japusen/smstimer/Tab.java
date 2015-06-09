@@ -7,7 +7,11 @@ import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+
 import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -77,9 +81,9 @@ public class Tab extends ListFragment {
         else
             data = getSent(getActivity());
 
-        drivingEvent event = new drivingEvent(3, "don't bother me", "Driving Mode", (float) 25.0);
+        drivingEvent event = new drivingEvent(3, "don't bother me", "Driving Mode", 25.0);
         data.add(event);
-        locationEvent location = new locationEvent(1, "on my way", "John", "123 St", (float) 1.00);
+        locationEvent location = new locationEvent(1, "on my way", "John", "123 St", 1.00);
         data.add(location);
         delayEvent delay = new delayEvent(0, "t minus 25 until the game starts. dont forget to bring the food." +
                                              "see you soon.", "Sarah", "12:00pm", "6/5/16");
@@ -90,6 +94,7 @@ public class Tab extends ListFragment {
 
         MyArrayAdapter adapter = new MyArrayAdapter(getActivity(), data);
         setListAdapter(adapter);
+
         return v;
     }
 }

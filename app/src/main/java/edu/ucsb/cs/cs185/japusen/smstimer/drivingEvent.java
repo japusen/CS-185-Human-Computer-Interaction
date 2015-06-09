@@ -1,16 +1,16 @@
 package edu.ucsb.cs.cs185.japusen.smstimer;
 
 public class drivingEvent extends Event {
-    private float speed;
+    private double speed;
 
-    public drivingEvent(int type, String message, String header, float speed) {
+    public drivingEvent(int type, String message, String header, double speed) {
         super(type, message, header);
         this.speed = speed;
     }
 
-    public float getSpeed() {
+    public double getSpeed() {
         return this.speed;
     }
 
-    public void setSpeed(float speed) { this.speed = speed; }
+    public void setSpeed(double speed) { this.speed = speed; }
 }

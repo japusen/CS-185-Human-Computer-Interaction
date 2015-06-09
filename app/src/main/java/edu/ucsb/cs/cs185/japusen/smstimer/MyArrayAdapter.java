@@ -2,17 +2,18 @@ package edu.ucsb.cs.cs185.japusen.smstimer;
 
 
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.LightingColorFilter;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 import java.util.ArrayList;
 
 public class MyArrayAdapter extends ArrayAdapter<Event> {
@@ -83,7 +84,7 @@ public class MyArrayAdapter extends ArrayAdapter<Event> {
                 imageView.setImageDrawable(drIcon);
                 //imageView.setImageResource(R.mipmap.carw48);
                 top.setText("Driving Mode");
-                middle.setText(Float.toString(drive.getSpeed()) + " mph");
+                middle.setText(Double.toString(drive.getSpeed()) + " mph");
                 bottom.setText(drive.getMessage());
                 break;
             default:
