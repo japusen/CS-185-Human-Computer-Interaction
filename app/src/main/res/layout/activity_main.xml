@@ -11,7 +11,7 @@
         android:id="@+id/tool_bar"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:background="@color/darkblue"
+        android:background="@color/theme"
         android:elevation="2dp"
         android:theme="@style/Base.ThemeOverlay.AppCompat.Dark"/>
 
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="2dp"
-        android:background="@color/darkblue"/>
+        android:background="@color/theme"/>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -40,9 +40,9 @@
             android:layout_margin="16dp"
             android:tint="@android:color/white"
             android:src="@android:drawable/ic_input_add"
-            fab:fab_colorNormal="@color/blue"
-            fab:fab_colorPressed="@color/buttonPress"
-            fab:fab_colorRipple="@color/blue"/>
+            fab:fab_colorNormal="@color/theme"
+            fab:fab_colorPressed="@color/themepress"
+            fab:fab_colorRipple="@color/themeripple"/>
 
     </FrameLayout>
 

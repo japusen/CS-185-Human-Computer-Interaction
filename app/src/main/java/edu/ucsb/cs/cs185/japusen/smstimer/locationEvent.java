@@ -2,9 +2,9 @@ package edu.ucsb.cs.cs185.japusen.smstimer;
 
 public class locationEvent extends Event {
     private String location;
-    private float distance;
+    private double distance;
 
-    public locationEvent(int type, String message, String header, String location, float distance) {
+    public locationEvent(int type, String message, String header, String location, double distance) {
         super(type, message, header);
         this.location = location;
         this.distance = distance;
@@ -14,7 +14,7 @@ public class locationEvent extends Event {
         return this.location;
     }
 
-    public float getDistance() {
+    public double getDistance() {
         return this.distance;
     }
 
@@ -22,6 +22,6 @@ public class locationEvent extends Event {
         this.location = location;
     }
 
-    public void setDistance(float distance) { this.distance = distance; }
+    public void setDistance(double distance) { this.distance = distance; }
 
 }

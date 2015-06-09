@@ -34,4 +34,7 @@
     <color name="clock">#106022</color>
     <color name="contact">#50a162</color>
 
+    <color name="themepress">#b3255e69</color>
+    <color name="themeripple">#80255e69</color>
+
 </resources>
