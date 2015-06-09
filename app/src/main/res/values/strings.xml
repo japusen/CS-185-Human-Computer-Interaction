@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SmsTimer</string>
+    <string name="app_name">AutoText</string>
     <string name="delete">Delete Sent</string>
     <string name="img_desc">Desc</string>
     <string-array name="message_choices">

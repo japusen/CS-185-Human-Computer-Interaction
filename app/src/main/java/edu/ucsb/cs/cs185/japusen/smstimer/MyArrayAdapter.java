@@ -8,12 +8,10 @@ import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import java.util.ArrayList;
 
 public class MyArrayAdapter extends ArrayAdapter<Event> {
@@ -45,44 +43,40 @@ public class MyArrayAdapter extends ArrayAdapter<Event> {
         switch(event.getType()) {
             case DELAY:
                 delayEvent delay = (delayEvent) event;
-                Drawable dIcon = list_view.getResources().getDrawable(R.mipmap.alarmw48);
+                Drawable dIcon = list_view.getResources().getDrawable(R.mipmap.alarm24);
                 ColorFilter dFilter = new LightingColorFilter(0x4CAF50, 0);
                 dIcon.setColorFilter(dFilter);
                 imageView.setImageDrawable(dIcon);
-                //imageView.setImageResource(R.mipmap.alarmw48);
                 top.setText(delay.getHeader());
                 middle.setText(delay.getDate() + " " + delay.getTime());
                 bottom.setText(delay.getMessage());
                 break;
             case LOCATION:
                 locationEvent location = (locationEvent) event;
-                Drawable lIcon = list_view.getResources().getDrawable(R.mipmap.roomw48);
+                Drawable lIcon = list_view.getResources().getDrawable(R.mipmap.room24);
                 ColorFilter lFilter = new LightingColorFilter(0xF44336, 0);
                 lIcon.setColorFilter(lFilter);
                 imageView.setImageDrawable(lIcon);
-                //imageView.setImageResource(R.mipmap.roomw48);
                 top.setText(location.getHeader());
                 middle.setText(location.getLocation());
                 bottom.setText(location.getMessage());
                 break;
             case CONTACT:
                 contactEvent contact = (contactEvent) event;
-                Drawable cIcon = list_view.getResources().getDrawable(R.mipmap.accw48);
+                Drawable cIcon = list_view.getResources().getDrawable(R.mipmap.acc24);
                 ColorFilter cFilter = new LightingColorFilter(0xF57F17, 0);
                 cIcon.setColorFilter(cFilter);
                 imageView.setImageDrawable(cIcon);
-                //imageView.setImageResource(R.mipmap.accw48);
                 top.setText(contact.getHeader());
                 middle.setText(contact.getNumber());
                 bottom.setText(contact.getMessage());
                 break;
             case DRIVING:
                 drivingEvent drive = (drivingEvent) event;
-                Drawable drIcon = list_view.getResources().getDrawable(R.mipmap.carw48);
+                Drawable drIcon = list_view.getResources().getDrawable(R.mipmap.car24);
                 ColorFilter drFilter = new LightingColorFilter(0x3F51B5, 0);
                 drIcon.setColorFilter(drFilter);
                 imageView.setImageDrawable(drIcon);
-                //imageView.setImageResource(R.mipmap.carw48);
                 top.setText("Driving Mode");
                 middle.setText(Double.toString(drive.getSpeed()) + " mph");
                 bottom.setText(drive.getMessage());
