@@ -26,24 +26,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="#000000"
-            android:textSize="14sp" />
+            android:textColor="#B3000000"
+            android:textSize="14sp"
+            android:maxLines="1"
+            android:ellipsize="marquee"/>
 
         <TextView
             android:id="@+id/middle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="#000000"
-            android:textSize="14sp" />
+            android:textColor="#B3000000"
+            android:textSize="14sp"
+            android:maxLines="1"
+            android:ellipsize="marquee"/>
 
         <TextView
             android:id="@+id/bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="#000000"
-            android:textSize="14sp" />
+            android:textColor="#B3000000"
+            android:textSize="14sp"
+            android:maxLines="1"
+            android:ellipsize="marquee"/>
 
 
     </LinearLayout>

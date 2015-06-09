@@ -77,11 +77,17 @@ public class Tab extends ListFragment {
         else
             data = getSent(getActivity());
 
-        drivingEvent event = new drivingEvent(3, "don't bother me", "Driving Mode", "your mother's house", (float)25.0);
+        drivingEvent event = new drivingEvent(3, "don't bother me", "Driving Mode", (float) 25.0);
         data.add(event);
+        locationEvent location = new locationEvent(1, "on my way", "John", "123 St", (float) 1.00);
+        data.add(location);
+        delayEvent delay = new delayEvent(0, "t minus 25 until the game starts. dont forget to bring the food." +
+                                             "see you soon.", "Sarah", "12:00pm", "6/5/16");
+        data.add(delay);
+        contactEvent contact = new contactEvent(2, "this is Jay", "Jane", "555 555 5555");
+        data.add(contact);
 
-        //list_items = new String[]{"One", "Two", "Three"};
-        //setListAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, list_items));
+
         MyArrayAdapter adapter = new MyArrayAdapter(getActivity(), data);
         setListAdapter(adapter);
         return v;

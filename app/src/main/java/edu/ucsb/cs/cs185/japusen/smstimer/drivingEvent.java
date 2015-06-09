@@ -3,7 +3,7 @@ package edu.ucsb.cs.cs185.japusen.smstimer;
 public class drivingEvent extends Event {
     private float speed;
 
-    public drivingEvent(int type, String message, String header, String location, float speed) {
+    public drivingEvent(int type, String message, String header, float speed) {
         super(type, message, header);
         this.speed = speed;
     }
