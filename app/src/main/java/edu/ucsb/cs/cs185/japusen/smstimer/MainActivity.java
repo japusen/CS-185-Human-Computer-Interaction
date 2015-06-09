@@ -33,6 +33,7 @@ public class MainActivity extends ActionBarActivity  {
     public static final String PENDING = "PendingMessages";
     public static final String SENT = "SentMessages";
 
+    static final int NEW_MESSAGE = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,7 +105,28 @@ public class MainActivity extends ActionBarActivity  {
     // click fab to open new message
     public void clickNewMessage(View view) {
         Intent myIntent = new Intent(this, NewMessageActivity.class);
-        startActivity(myIntent);
+        startActivityForResult(myIntent, NEW_MESSAGE); //TODO STARTFOR RESULT
+    }
+
+    //recieve back from new message actiivty
+    //TODO onACtivityResult
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == NEW_MESSAGE) {
+            data.getExtras(); // get info from
+            Event event;
+
+            /*
+            event type
+                switch event type
+                    store different info
+                    make the card
+
+             add to arraylist pending
+             if contact, add to arraylist sent
+
+
+             */
+        }
     }
 
     public void savePending(Context context, ArrayList<Event> pending) {

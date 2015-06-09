@@ -10,6 +10,7 @@ import android.app.Dialog;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,11 +19,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 
 public class NewMessageActivity extends ActionBarActivity implements AdapterView.OnItemSelectedListener {
     private FragmentManager fragmentManager;
+    MessageFragment.OnDataPass dataPasser;
+
+    Button submitButton, cancelButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +47,27 @@ public class NewMessageActivity extends ActionBarActivity implements AdapterView
 
         // fragment manager
         fragmentManager = getFragmentManager();
+
+        submitButton = (Button) findViewById(R.id.submit_message);
+        cancelButton = (Button) findViewById(R.id.cancel_message);
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // send stuff to the main activity
+                Intent intent = new Intent(NewMessageActivity.this, MainActivity.class);
+                // at this point, we grab all the data entered
+
+            }
+        });
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //open main activity without sending any data
+                Intent intent = new Intent(NewMessageActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     // Select a message type from the spinner
@@ -82,6 +108,21 @@ public class NewMessageActivity extends ActionBarActivity implements AdapterView
         Log.w("onNothingSelected", "nothing selected");
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_new_message, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        return super.onOptionsItemSelected(item);
+    }
 
 }
