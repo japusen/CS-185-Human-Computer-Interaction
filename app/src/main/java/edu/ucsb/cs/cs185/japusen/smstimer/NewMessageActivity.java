@@ -63,13 +63,18 @@ public class NewMessageActivity extends ActionBarActivity implements AdapterView
                 fragmentTransaction.addToBackStack(null);
                 break;
             case "Adding Contact":
+                AddContactFragment contact = new AddContactFragment();
+                fragmentTransaction.replace(R.id.message_fragment_container, contact);
+                fragmentTransaction.addToBackStack(null);
                 break;
             case "Drive Mode":
+                DrivingFragment drive = new DrivingFragment();
+                fragmentTransaction.replace(R.id.message_fragment_container, drive);
+                fragmentTransaction.addToBackStack(null);
                 break;
 
         }
         fragmentTransaction.commit();
-
 
     }
 

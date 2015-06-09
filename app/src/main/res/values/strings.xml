@@ -8,4 +8,5 @@
         <item>Adding Contact</item>
         <item>Drive Mode</item>
     </string-array>
+    <string name="entertext">Enter message here</string>
 </resources>

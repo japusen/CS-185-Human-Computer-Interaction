@@ -1,1 +1,1 @@
-include ':app', ':fab_library'
+include ':app', ':fab_library', ':gson-2.3.1'

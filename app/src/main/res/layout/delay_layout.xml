@@ -4,8 +4,13 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/dateTimePicker"
-        android:text="Enter Date/Time"
+        android:id="@+id/datePicker"
+        android:text="Enter Date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/timePicker"
+        android:text="Enter Time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
