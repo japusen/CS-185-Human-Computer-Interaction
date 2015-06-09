@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/fab_library" />
+            <option value="$PROJECT_DIR$/gson-2.3.1" />
           </set>
         </option>
       </GradleProjectSettings>

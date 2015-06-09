@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/SmsTimer.iml" filepath="$PROJECT_DIR$/SmsTimer.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/fab_library/fab_library.iml" filepath="$PROJECT_DIR$/fab_library/fab_library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gson-2.3.1/gson-2.3.1.iml" filepath="$PROJECT_DIR$/gson-2.3.1/gson-2.3.1.iml" />
     </modules>
   </component>
 </project>

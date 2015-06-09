@@ -1,11 +1,7 @@
 package edu.ucsb.cs.cs185.japusen.smstimer;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.app.DialogFragment;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -21,17 +17,13 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
-
 import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -137,9 +129,7 @@ public class DelayFragment extends DialogFragment {
                         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
                         String formattedDate = sdf.format(new Date(year, monthOfYear, dayOfMonth));
 
-                        Intent intent = new Intent(getActivity().getBaseContext(), NewMessageActivity.class);
-                        intent.putExtra("date", formattedDate);
-                        getActivity().startActivity(intent);
+
                     }
                 }, mYear, mMonth, mDay);
         dpd.show();
@@ -164,9 +154,11 @@ public class DelayFragment extends DialogFragment {
                         long milliseconds = minute*60 + hourOfDay*3600 * 1000;
                         String formattedTime = sdf.format(milliseconds);
 
-                        Intent intent = new Intent(getActivity().getBaseContext(), NewMessageActivity.class);
-                        intent.putExtra("time", formattedTime);
-                        getActivity().startActivity(intent);
+                        //Intent intent = new Intent(getActivity().getBaseContext(), NewMessageActivity.class);
+                        //intent.putExtra("time", formattedTime);
+                        //getActivity().startActivity(intent);
+
+
                     }
                 }, hour, minute,
                 DateFormat.is24HourFormat(context));

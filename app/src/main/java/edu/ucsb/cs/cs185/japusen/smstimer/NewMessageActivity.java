@@ -54,8 +54,7 @@ public class NewMessageActivity extends ActionBarActivity implements AdapterView
             @Override
             public void onClick(View v) {
                 // send stuff to the main activity
-                Intent intent = new Intent(NewMessageActivity.this, MainActivity.class);
-                // at this point, we grab all the data entered
+                finish();
 
             }
         });
@@ -64,8 +63,7 @@ public class NewMessageActivity extends ActionBarActivity implements AdapterView
             @Override
             public void onClick(View v) {
                 //open main activity without sending any data
-                Intent intent = new Intent(NewMessageActivity.this, MainActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
     }

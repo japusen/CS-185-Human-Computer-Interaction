@@ -74,7 +74,6 @@ public class MainActivity extends ActionBarActivity  {
         FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "clicked FAB", Toast.LENGTH_LONG).show();
                 clickNewMessage(v);
             }
         });
@@ -112,7 +111,7 @@ public class MainActivity extends ActionBarActivity  {
     //TODO onACtivityResult
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode == NEW_MESSAGE) {
-            data.getExtras(); // get info from
+            //data.getExtras(); // get info from
             Event event;
 
             /*

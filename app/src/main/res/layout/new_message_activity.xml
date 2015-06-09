@@ -7,41 +7,75 @@
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
     android:orientation="vertical">
 
-    <Spinner
-        android:id="@+id/message_type"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-         />
-    <LinearLayout
-        android:id="@+id/message_fragment_container"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"/>
-    <EditText
-        android:id="@+id/the_message"
-        android:inputType="textMultiLine"
-        android:lines="1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:hint="@string/entertext"/>
-    <LinearLayout
-        android:id="@+id/submit_cancel_area"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button
-            android:layout_width="wrap_content"
+        android:orientation="vertical">
+
+        <Spinner
+            android:id="@+id/message_type"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/cancel_message"
-            android:layout_weight="1"
-            android:text="Cancel"/>
-        <Button
-            android:id="@+id/submit_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Submit"/>
+            />
+
     </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:paddingTop="20dp">
+
+        <LinearLayout
+            android:id="@+id/message_fragment_container"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"/>
+
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <EditText
+            android:id="@+id/the_message"
+            android:inputType="textMultiLine"
+            android:lines="1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:hint="@string/entertext"/>
+
+        <LinearLayout
+            android:id="@+id/submit_cancel_area"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="bottom|end">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/cancel_message"
+                android:layout_weight="1"
+                android:text="Cancel"/>
+            <Button
+                android:id="@+id/submit_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Submit"/>
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
 
 </LinearLayout>
